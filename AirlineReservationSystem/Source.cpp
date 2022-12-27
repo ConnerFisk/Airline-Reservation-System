@@ -1,6 +1,8 @@
 #include<iostream>
 #include<fstream>
 #include<iomanip>
+#include<string>
+#include<array>
 
 using namespace std;
 
@@ -20,6 +22,304 @@ class Management {
 public:
 	Management() {
 		mainMenu();
+	}
+};
+
+/**
+* 
+* 
+* 
+*/
+class Details {
+public:
+	// Create the needed variables for the user's info.
+	static string name;
+	int phoneNum;
+	int age;
+	string addr;
+	static int cId;
+	char arr[100];
+
+	// Ask for and store the user's info.
+	void info()
+	{
+		cout << "\nEnter your customer ID:";
+		cin >> cId;
+		cout << "\nEnter your name: ";
+		cin >> name;
+		cout << "\nEnter your age: ";
+		cin >> age;
+		cout << "\nEnter your address: ";
+		cin >> addr;
+		cout << "Your details are saved.\n" << endl;
+	}
+};
+
+int Details::cId;
+string Details::name;
+
+class registration {
+public:
+	static int choice;
+	int choice2;
+	int back;
+	static float cost;
+
+	void flights() {
+		std::array<std::string, 6> flightLocations{ "USA", "Canada", "UK", "Italy", "Melbourne", "Egypt" };
+
+		for (int i = 0; i < flightLocations.size(); i++) {
+			cout << (i + 1) << ".flight to" << flightLocations[i] << endl;
+		}
+
+		cout << "\n Welcome to Fisk Airlines" << endl;
+		cout << "Which flight would you like to book?";
+		cin >> choice;
+
+		// Different cases depending on the user's input.
+		switch (choice) {
+		// If the user chose USA...
+			case 1: {
+				cout << "_______Welcome to USA_______\n" << endl;
+				cout << "Enjoy!";
+				cout << "Here are the flights: \n" << endl;
+
+				cout << "1. USA - 0986" << endl;
+				cout << "\t 06-21-2025, 9:00AM, 10hrs, $400" << endl;
+				cout << "2. USA - 6149" << endl;
+				cout << "\t 07-13-2025, 2:30AM, 11hrs, $500" << endl;
+				cout << "3. USA - 6622" << endl;
+				cout << "\t 07-18-2025, 8:00PM, 14hrs, $550" << endl;
+
+				cout << "\n Select your desired flight: ";
+				cin >> choice2;
+
+				if (choice2 == 1) {
+					cost = 400;
+					cout << "\n Your flight has been booked: USA - 0986" << endl;
+					cout << "Please return to the Main Menu and collect your ticket." << endl;
+				}
+				else if (choice2 == 2) {
+					cost = 500;
+					cout << "\n Your flight has been booked: USA - 6149" << endl;
+					cout << "Please return to the Main Menu and collect your ticket." << endl;
+				}
+				else if (choice2 == 3) {
+					cost = 550;
+					cout << "\n Your flight has been booked: USA - 6622" << endl;
+					cout << "Please return to the Main Menu and collect your ticket." << endl;
+				}
+				else {
+					cout << "Your input was invalid. Returning to the previous menu..." << endl;
+					flights();
+				}
+
+				cout << "Press any key to go back to the main menu: " << endl;
+				cin >> back;
+
+				if (back == 1) {
+					mainMenu();
+				}
+				else {
+					mainMenu();
+				}
+			}
+			// If the user chose Canada...
+			case 2: {
+				cout << "_______Welcome to Canada_______\n" << endl;
+				cout << "Enjoy!";
+				cout << "Here are the flights: \n" << endl;
+
+				cout << "1. CA - 0426" << endl;
+				cout << "\t 06-29-2025, 10:00AM, 11hrs, $500" << endl;
+				cout << "2. CA - 6079" << endl;
+				cout << "\t 07-16-2025, 3:30AM, 12hrs, $570" << endl;
+				cout << "3. CA - 4621" << endl;
+				cout << "\t 07-19-2025, 7:00PM, 15hrs, $670" << endl;
+
+				cout << "\n Select your desired flight: ";
+				cin >> choice2;
+
+				if (choice2 == 1) {
+					cost = 500;
+					cout << "\n Your flight has been booked: CA - 0426" << endl;
+					cout << "Please return to the Main Menu and collect your ticket." << endl;
+				}
+				else if (choice2 == 2) {
+					cost = 570;
+					cout << "\n Your flight has been booked: CA - 6079" << endl;
+					cout << "Please return to the Main Menu and collect your ticket." << endl;
+				}
+				else if (choice2 == 3) {
+					cost = 670;
+					cout << "\n Your flight has been booked: CA - 4621" << endl;
+					cout << "Please return to the Main Menu and collect your ticket." << endl;
+				}
+				else {
+					cout << "Your input was invalid. Returning to the previous menu..." << endl;
+					flights();
+				}
+
+				cout << "Press any key to go back to the main menu: " << endl;
+				cin >> back;
+
+				if (back == 1) {
+					mainMenu();
+				}
+				else {
+					mainMenu();
+				}
+			}
+			// If the user chose the UK...
+			case 3: {
+				cout << "_______Welcome to the UK_______\n" << endl;
+				cout << "Enjoy!";
+				cout << "Here are the flights: \n" << endl;
+
+				cout << "1. UK - 1426" << endl;
+				cout << "\t 05-29-2025, 11:00AM, 5hrs, $400" << endl;
+				cout << "2. UK - 3079" << endl;
+				cout << "\t 06-16-2025, 6:30AM, 3hrs, $370" << endl;
+
+				cout << "\n Select your desired flight: ";
+				cin >> choice2;
+
+				if (choice2 == 1) {
+					cost = 400;
+					cout << "\n Your flight has been booked: UK - 1426" << endl;
+					cout << "Please return to the Main Menu and collect your ticket." << endl;
+				}
+				else if (choice2 == 2) {
+					cost = 370;
+					cout << "\n Your flight has been booked: UK - 3079" << endl;
+					cout << "Please return to the Main Menu and collect your ticket." << endl;
+				}
+				else {
+					cout << "Your input was invalid. Returning to the previous menu..." << endl;
+					flights();
+				}
+
+				cout << "Press any key to go back to the main menu: " << endl;
+				cin >> back;
+
+				if (back == 1) {
+					mainMenu();
+				}
+				else {
+					mainMenu();
+				}
+			}
+			// If the user chose Italy...
+			case 4: {
+				cout << "_______Welcome to Italy_______\n" << endl;
+				cout << "Enjoy!";
+				cout << "Here are the flights: \n" << endl;
+
+				cout << "1. IT - 5427" << endl;
+				cout << "\t 05-29-2025, 11:00AM, 5hrs, $450" << endl;
+				cout << "2. IT - 3779" << endl;
+				cout << "\t 06-16-2025, 6:30AM, 3hrs, $370" << endl;
+
+				cout << "\n Select your desired flight: ";
+				cin >> choice2;
+
+				if (choice2 == 1) {
+					cost = 450;
+					cout << "\n Your flight has been booked: IT - 5427" << endl;
+					cout << "Please return to the Main Menu and collect your ticket." << endl;
+				}
+				else if (choice2 == 2) {
+					cost = 370;
+					cout << "\n Your flight has been booked: IT - 3779" << endl;
+					cout << "Please return to the Main Menu and collect your ticket." << endl;
+				}
+				else {
+					cout << "Your input was invalid. Returning to the previous menu..." << endl;
+					flights();
+				}
+
+				cout << "Press any key to go back to the main menu: " << endl;
+				cin >> back;
+
+				if (back == 1) {
+					mainMenu();
+				}
+				else {
+					mainMenu();
+				}
+			}
+			// If the user chose Melbourne...
+			case 5: {
+				cout << "_______Welcome to Melbourne_______\n" << endl;
+				cout << "Enjoy!";
+				cout << "Here is the flight: \n" << endl;
+
+				cout << "1. AU - 3476" << endl;
+				cout << "\t 05-29-2025, 11:00AM, 15hrs, $700" << endl;
+
+				cout << "\n Select your desired flight: ";
+				cin >> choice2;
+
+				if (choice2 == 1) {
+					cost = 700;
+					cout << "\n Your flight has been booked: AU - 3476" << endl;
+					cout << "Please return to the Main Menu and collect your ticket." << endl;
+				}
+				else {
+					cout << "Your input was invalid. Returning to the previous menu..." << endl;
+					flights();
+				}
+
+				cout << "Press any key to go back to the main menu: " << endl;
+				cin >> back;
+
+				if (back == 1) {
+					mainMenu();
+				}
+				else {
+					mainMenu();
+				}
+			}
+			// If the user chose Egypt...
+			case 6: {
+				cout << "_______Welcome to Egypt_______\n" << endl;
+				cout << "Enjoy!";
+				cout << "Here are the flights: \n" << endl;
+
+				cout << "1. EG - 0456" << endl;
+				cout << "\t 05-29-2025, 11:00AM, 9hrs, $600" << endl;
+				cout << "2. EG - 5479" << endl;
+				cout << "\t 06-16-2025, 6:30AM, 8hrs, $570" << endl;
+
+				cout << "\n Select your desired flight: ";
+				cin >> choice2;
+
+				if (choice2 == 1) {
+					cost = 600;
+					cout << "\n Your flight has been booked: EG - 0456" << endl;
+					cout << "Please return to the Main Menu and collect your ticket." << endl;
+				}
+				else if (choice2 == 2) {
+					cost = 570;
+					cout << "\n Your flight has been booked: EG - 5479" << endl;
+					cout << "Please return to the Main Menu and collect your ticket." << endl;
+				}
+				else {
+					cout << "Your input was invalid. Returning to the previous menu..." << endl;
+					flights();
+				}
+
+				cout << "Press any key to go back to the main menu: " << endl;
+				cin >> back;
+
+				if (back == 1) {
+					mainMenu();
+				}
+				else {
+					mainMenu();
+				}
+			}
+		}
 	}
 };
 
@@ -51,6 +351,7 @@ void mainMenu() {
 	cout << "Enter your selection: ";
 	cin >> lChoice;
 
+	// Use different cases depending on the user's choice.
 	switch (lChoice) {
 		case 1: {
 			cout << "\t ____________Customers____________" << endl;
@@ -66,22 +367,23 @@ void mainMenu() {
 			}
 			break;
 		}
-
+		// Call the flights function if the user wants to book a flight.
 		case 2: {
 			cout << "\t __________Book a Flight__________" << endl;
 			r.flights();
 			break;
 		}
-
+		// Call the bill function of the user wants to get a ticket.
 		case 3: {
 			cout << "\t _________Get Your Ticket_________" << endl;
 			t.bill();
-
+			// Once the user has got their ticket, inform them.
 			cout << "Your ticket is confirmed. \n" << endl;
 			cout << "Press 1 to display your ticket. \n" << endl;
 
 			cin >> back;
 
+			// Return to the Main Menu.
 			if (back == 1) {
 				t.display();
 				cout << "Press any key to return to the Main Menu: ";
@@ -98,12 +400,16 @@ void mainMenu() {
 			}
 			break;
 		}
+		// If the user is finished, thank them.
 		case 4: {
 			cout << "\n\n\t_______Thank you!_______" << endl;
 			break;
 		}
+		// If there was an invalid input, let the user know and inform them to try again.
 		default: {
 			cout << "It seems that your input was not valid, please try again. \n" << endl;
+			mainMenu();
+			break;
 		}
 	}
 }
