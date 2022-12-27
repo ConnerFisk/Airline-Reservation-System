@@ -8,11 +8,6 @@ using namespace std;
 
 void mainMenu();
 
-int main() {
-	Management m;
-	return 0;
-}
-
 /**
 *
 *
@@ -24,6 +19,11 @@ public:
 		mainMenu();
 	}
 };
+
+int main() {
+	Management m;
+	return 0;
+}
 
 /**
 * 
@@ -58,7 +58,7 @@ public:
 int Details::cId;
 string Details::name;
 
-class registration {
+class Registration {
 public:
 	static int choice;
 	int choice2;
@@ -69,7 +69,7 @@ public:
 		std::array<std::string, 6> flightLocations{ "USA", "Canada", "UK", "Italy", "Melbourne", "Egypt" };
 
 		for (int i = 0; i < flightLocations.size(); i++) {
-			cout << (i + 1) << ".flight to" << flightLocations[i] << endl;
+			cout << (i + 1) << ". Destination: " << flightLocations[i] << endl;
 		}
 
 		cout << "\n Welcome to Fisk Airlines" << endl;
@@ -117,12 +117,7 @@ public:
 				cout << "Press any key to go back to the main menu: " << endl;
 				cin >> back;
 
-				if (back == 1) {
-					mainMenu();
-				}
-				else {
-					mainMenu();
-				}
+				mainMenu();
 			}
 			// If the user chose Canada...
 			case 2: {
@@ -163,12 +158,7 @@ public:
 				cout << "Press any key to go back to the main menu: " << endl;
 				cin >> back;
 
-				if (back == 1) {
-					mainMenu();
-				}
-				else {
-					mainMenu();
-				}
+				mainMenu();
 			}
 			// If the user chose the UK...
 			case 3: {
@@ -202,12 +192,7 @@ public:
 				cout << "Press any key to go back to the main menu: " << endl;
 				cin >> back;
 
-				if (back == 1) {
-					mainMenu();
-				}
-				else {
-					mainMenu();
-				}
+				mainMenu();
 			}
 			// If the user chose Italy...
 			case 4: {
@@ -241,12 +226,7 @@ public:
 				cout << "Press any key to go back to the main menu: " << endl;
 				cin >> back;
 
-				if (back == 1) {
-					mainMenu();
-				}
-				else {
-					mainMenu();
-				}
+				mainMenu();
 			}
 			// If the user chose Melbourne...
 			case 5: {
@@ -273,12 +253,7 @@ public:
 				cout << "Press any key to go back to the main menu: " << endl;
 				cin >> back;
 
-				if (back == 1) {
-					mainMenu();
-				}
-				else {
-					mainMenu();
-				}
+				mainMenu();
 			}
 			// If the user chose Egypt...
 			case 6: {
@@ -312,14 +287,73 @@ public:
 				cout << "Press any key to go back to the main menu: " << endl;
 				cin >> back;
 
-				if (back == 1) {
-					mainMenu();
-				}
-				else {
-					mainMenu();
-				}
+				mainMenu();
+			}
+			default: {
+				cout << "Your input was invalid. Going back to the Main Menu..." << endl;
+				mainMenu();
+				break;
 			}
 		}
+	}
+};
+
+float Registration::cost;
+int Registration::choice;
+
+class Ticket : public Registration, Details {
+public:
+	void bill() {
+		string destination = "";
+		// Create a file for the data of the flight.
+		ofstream outf("data.txt");
+		{
+			outf << "____________Fisk Airlines____________" << endl;
+			outf << "_______________Ticket_______________" << endl;
+			outf << "____________________________________" << endl;
+
+			outf << "Customer ID: " << Details::cId << endl;
+			outf << "Customer Name: " << Details::name << endl;
+			outf << "Description: " << endl << endl;
+
+			if (Registration::choice == 1) {
+				destination = "USA";
+			}
+			else if (Registration::choice == 2) {
+				destination = "Canada";
+			}
+			else if (Registration::choice == 3) {
+				destination = "UK";
+			}
+			else if (Registration::choice == 4) {
+				destination = "Italy";
+			}
+			else if (Registration::choice == 5) {
+				destination = "Melbourne";
+			}
+			else if (Registration::choice == 6) {
+				destination = "Egypt";
+			}
+			outf << "Destination\t\t" << destination << endl;
+			outf << "Cost of flight:\t\t" << Registration::cost << endl;
+		}
+		// Close the data file.
+		outf.close();
+	}
+	/**
+	* 
+	*/
+	void displayBill() {
+		ifstream stream("data.txt"); {
+			if (!stream) {
+				cout << "There was an error with the file." << endl;
+			}
+			while (!stream.eof()) {
+				stream.getline(arr, 100);
+				cout << arr << endl;
+			}
+		}
+		stream.close();
 	}
 };
 
@@ -331,8 +365,8 @@ void mainMenu() {
 
 	//Declare other needed variables.
 	Details d;
-	registration r;
-	ticket t;
+	Registration r;
+	Ticket t;
 
 	// Print out the a visual menu for the user.
 	cout << "\t				Fisk Airlines \n" << endl;
@@ -359,12 +393,8 @@ void mainMenu() {
 			cout << "Press 1 to return to the Main Menu";
 			cin >> back;
 
-			if (back == 1) {
-				mainMenu();
-			}
-			else {
-				mainMenu();
-			}
+			mainMenu();
+
 			break;
 		}
 		// Call the flights function if the user wants to book a flight.
@@ -385,19 +415,11 @@ void mainMenu() {
 
 			// Return to the Main Menu.
 			if (back == 1) {
-				t.display();
+				t.displayBill();
 				cout << "Press any key to return to the Main Menu: ";
 				cin >> back;
-				if (back == 1) {
-					mainMenu();
-				}
-				else {
-					mainMenu();
-				}
 			}
-			else {
-				mainMenu();
-			}
+			mainMenu();
 			break;
 		}
 		// If the user is finished, thank them.
