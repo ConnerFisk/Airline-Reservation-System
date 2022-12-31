@@ -1,7 +1,7 @@
 # Airline Reservation System
 
 ###### About
-A sample Airline Reservation System created with C++.
+A sample Airline Reservation System console application created with C++.
 
 ###### Features
 In this program, a user can:
