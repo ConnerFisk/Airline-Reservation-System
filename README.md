@@ -1,8 +1,5 @@
 # Airline Reservation System
 
-###### About
-Here lies the reservation system for 'Fisk Airlines'.
-
 ###### Features
 In this program, a user can:
 * Enter their passenger details.
